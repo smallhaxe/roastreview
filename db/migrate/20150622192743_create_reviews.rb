@@ -3,8 +3,8 @@ class CreateReviews < ActiveRecord::Migration
     create_table :reviews do |t|
       t.integer :rating
       t.string :body
-      t.user :belongs_to
-      t.roast :has_one
+      t.integer :user_id
+      t.integer :roast_id
 
       t.timestamps null: false
     end
