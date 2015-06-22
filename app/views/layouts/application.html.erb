@@ -1,12 +1,49 @@
 <!DOCTYPE html>
 <html>
 <head>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Roastreview</title>
   <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
+  <%= javascript_include_tag "vendor/modernizr" %>
   <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
+
   <%= csrf_meta_tags %>
 </head>
 <body>
+
+  <div class="off-canvas-wrap" data-offcanvas>
+  <div class="inner-wrap">
+    <nav class="tab-bar">
+      <section class="left-small">
+        <a href="#idOfLeftmenu" role="button" aria-controls="idOfLeftMenu" aria-expanded="false" class="left-off-canvas-toggle menu-icon" href="#" ><span></span></a>
+      </section>
+
+      <section class="middle tab-bar-section">
+        <h1 class="title">Roast Review</h1>
+      </section>
+    </nav>
+    <!-- Off Canvas Menu -->
+    <aside class="left-off-canvas-menu">
+      <ul class="off-canvas-list">
+        <li><label>Menu</label></li>
+        <li><a href="#">Item 2</a></li>
+        <li><a href="#">Item 3</a></li>
+      </ul>
+    </aside>
+
+    <!-- main content goes here -->
+    <section class="main-section">
+      <div class="header-video">
+        <iframe src="https://player.vimeo.com/video/82243782" width="100%" height="680px" frameborder="0" webkitallowfullscreen mozallowfullscreen allowfullscreen></iframe>
+        <!-- <p><a href="https://vimeo.com/82243782">Kitten Coffee</a> from <a href="https://vimeo.com/alexchawley">Alex Hawley</a> on <a href="https://vimeo.com">Vimeo</a>.</p> -->
+      </div>
+    </section>
+
+  <!-- close the off-canvas menu -->
+  <a class="exit-off-canvas"></a>
+
+  </div>
+</div>
 
 <%= yield %>
 
