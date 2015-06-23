@@ -4,23 +4,23 @@ require "ffaker"
 
 users_seeds = [
                 [ "Mike", "Tan",
-                  "mike@ta.n", "mike" ],
+                  "mike@ta.n", "password" ],
                 [ "Celeste", "Layne",
-                  "celeste@layn.e", "celeste" ],
+                  "celeste@layn.e", "password" ],
                 [ "Wyatt", "Sweet",
-                  "wyatt@swee.t", "wyatt" ],
+                  "wyatt@swee.t", "password" ],
+                [ "Francisco", "Echeverri",
+                  "francisco@echeverr.i", "password" ],
                 [ "Ugo", "Ani",
-                  "ugo@an.i", "ugo" ]
+                  "ugo@an.i", "password" ]
               ]
               
 users_seeds.each do |fname, lname, email, pass|
   User.create( first_name: fname, last_name: lname, email: email, password_digest: pass )
 end
 
-# ffaker_users = [FFaker::Name::first_name, FFaker::Name::last_name, FFaker::Internet::email, "pass"]
-
-996.times do ||
-  User.create( first_name: FFaker::Name::first_name, last_name: FFaker::Name::last_name, email: FFaker::Internet::email, password_digest: "pass" )
+995.times do ||
+  User.create( first_name: FFaker::Name::first_name, last_name: FFaker::Name::last_name, email: FFaker::Internet::email, password_digest: "password" )
 end
 
 roasts_seeds =  [
@@ -66,8 +66,8 @@ roasts_seeds =  [
                     "Ecuador El Batan Fiar Trade Organic", "Equator Coffees & Teas" ]
                 ]
  
-roasts_seeds.each do |level, type, name, roaster|
-  Roast.create( level: level, type: type, coffee_name: name, roaster: roaster )
+roasts_seeds.each do |roast_level, roast_type, name, roaster|
+  Roast.create( roast_level: roast_level, roast_type: roast_type, coffee_name: name, roaster: roaster )
 end
 
 1000.times do ||

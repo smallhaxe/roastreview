@@ -5,8 +5,8 @@
 <table>
   <thead>
     <tr>
-      <th>Color</th>
-      <th>Type</th>
+      <th>Roast Level</th>
+      <th>Roast Type</th>
       <th>Coffee name</th>
       <th>Roaster</th>
       <th colspan="3"></th>
@@ -16,8 +16,8 @@
   <tbody>
     <% @roasts.each do |roast| %>
       <tr>
-        <td><%= roast.color %></td>
-        <td><%= roast.type %></td>
+        <td><%= roast.roast_level %></td>
+        <td><%= roast.roast_type %></td>
         <td><%= roast.coffee_name %></td>
         <td><%= roast.roaster %></td>
         <td><%= link_to 'Show', roast %></td>
