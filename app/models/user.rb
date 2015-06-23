@@ -10,5 +10,7 @@ class User < ActiveRecord::Base
   validates :email, presence: true
   validates :first_name, presence: true
   validates :last_name, presence: true
-  validates :password, length: 8..300
+
+  validates :password, length: 8..30
+
 end
