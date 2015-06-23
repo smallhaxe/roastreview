@@ -11,13 +11,13 @@
 </p>
 
 <p>
-  <strong>Belongs to:</strong>
-  <%= @review.belongs_to %>
+  <strong>User:</strong>
+  <%= @review.user_id %>
 </p>
 
 <p>
-  <strong>Has one:</strong>
-  <%= @review.has_one %>
+  <strong>Roast:</strong>
+  <%= @review.roast_id %>
 </p>
 
 <%= link_to 'Edit', edit_review_path(@review) %> |
