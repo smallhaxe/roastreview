@@ -3,6 +3,7 @@ Rails.application.routes.draw do
   resources :reviews
   resources :users
 
+  root to: "sessions#index"
   get "/login", to: "sessions#new"
 
   post "/sessions", to: "sessions#create"

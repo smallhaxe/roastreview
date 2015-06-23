@@ -15,6 +15,6 @@
  *= require foundation
  */
 
-#main {
+body {
   margin-top: 60px;
 }
