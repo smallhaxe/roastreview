@@ -3,8 +3,13 @@
 	<head>
 		<title></title>
 	</head>
-	<body>
+	<body id="profilePage">
+
+		<div id="profileUserInfo"></div>
+		<div id="profileUserReviews"></div>
+
 		<p id="notice"><%= notice %></p>
+		<p><%=image_tag avatar_url(@user)%></p>
 		<p>
 		  <strong>First name:</strong>
 		  <%= @user.first_name %>
