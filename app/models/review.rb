@@ -1,4 +1,4 @@
 class Review < ActiveRecord::Base
   belongs_to :user
-  has_one :roast
+  belongs_to :roast
 end
