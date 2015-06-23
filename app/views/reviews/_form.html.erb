@@ -13,7 +13,7 @@
 
   <div class="field">
     <%= f.label :rating %><br>
-    <%= f.number_field :rating %>
+    <%= f.select(:rating, options_for_select([['1', '1'], ['2', '2'], ['3', '3'], ['4', '4'], ['5 - Best', '5']])) %>
   </div>
   <div class="field">
     <%= f.label :body %><br>
@@ -21,11 +21,11 @@
   </div>
   <div class="field">
     <%= f.label :belongs_to %><br>
-    <%= f.text_field :belongs_to %>
+    <%= f.text_field :user_id %>
   </div>
   <div class="field">
     <%= f.label :has_one %><br>
-    <%= f.text_field :has_one %>
+    <%= f.text_field :roast_id %>
   </div>
   <div class="actions">
     <%= f.submit %>
