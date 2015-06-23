@@ -16,11 +16,11 @@ users_seeds = [
               ]
               
 users_seeds.each do |fname, lname, email, pass|
-  User.create( first_name: fname, last_name: lname, email: email, password_digest: pass )
+  User.create( first_name: fname, last_name: lname, email: email, password: pass )
 end
 
 995.times do ||
-  User.create( first_name: FFaker::Name::first_name, last_name: FFaker::Name::last_name, email: FFaker::Internet::email, password_digest: "password" )
+  User.create( first_name: FFaker::Name::first_name, last_name: FFaker::Name::last_name, email: FFaker::Internet::email, password: "password" )
 end
 
 roasts_seeds =  [
