@@ -12,4 +12,9 @@
  *
  *= require_tree .
  *= require_self
+ *= require foundation
  */
+
+#main {
+  margin-top: 60px;
+}
