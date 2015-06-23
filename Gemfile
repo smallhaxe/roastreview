@@ -35,6 +35,9 @@ gem 'bcrypt', '~> 3.1.7'
 # Use Capistrano for deployment
 # gem 'capistrano-rails', group: :development
 
+# Use Zurb Foundation for front-end framework
+gem 'foundation-rails'
+
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
   gem 'pry-byebug'
@@ -47,5 +50,12 @@ group :development, :test do
   
   # FFaker for seed data
   gem 'ffaker'
+  
+  gem 'rspec-rails', '~> 2.0'
+
+end
+
+group :test do
+  gem 'capybara', '~> 2.1.0'
 end
 
