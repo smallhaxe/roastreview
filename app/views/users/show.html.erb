@@ -19,15 +19,13 @@
 		</p>
 		<%= link_to 'Edit', edit_user_path(@user) %> |
 		<%= link_to 'Back', users_path %>
-		<div>
 			<ul>
-				<%= @user.reviews.each do |review| %>
+				<% @user.reviews.each do |review| %>
 				<li>
-				<%= link_to "#{review.body}", review_path(review) %>
+					<%= link_to "#{review.body}", review_path(review) %>
 				</li>
 				<% end %>
-			</ul>
-		</div>
+		</ul>
 	</body>
 </html>
 
