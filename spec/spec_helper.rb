@@ -4,6 +4,14 @@ require File.expand_path("../../config/environment", __FILE__)
 require 'rspec/rails'
 require 'capybara/rspec'
 
+RSpec.configure do |c|
+  c.expose_current_running_example_as :example
+end
+
+RSpec.configure do |config|
+  config.infer_spec_type_from_file_location!
+end
+
 # Requires supporting ruby files with custom matchers and macros, etc,
 # in spec/support/ and its subdirectories.
 Dir[Rails.root.join("spec/support/**/*.rb")].each {|f| require f}
