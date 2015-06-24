@@ -1,19 +1,37 @@
-<p id="notice"><%= notice %></p>
+<!DOCTYPE html>
+<html>
+	<head>
+		<title></title>
+	</head>
+	<body id="profilePage">
 
-<p>
-  <strong>First name:</strong>
-  <%= @user.first_name %>
-</p>
+		<div id="profileUserInfo"></div>
+		<div id="profileUserReviews"></div>
 
-<p>
-  <strong>Last name:</strong>
-  <%= @user.last_name %>
-</p>
+		<p id="notice"><%= notice %></p>
+		<p><%=image_tag avatar_url(@user)%></p>
+		<p>
+		  <strong>First name:</strong>
+		  <%= @user.first_name %>
+		</p>
+		<p>
+		  <strong>Last name:</strong>
+		  <%= @user.last_name %>
+		</p>
+		<p>
+		  <strong>Email:</strong>
+		  <%= @user.email %>
+		</p>
+		<%= link_to 'Edit', edit_user_path(@user) %> |
+		<%= link_to 'Back', users_path %>
+			<ul>
+				<% @user.reviews.each do |review| %>
+				<li>
+					<%= link_to "#{review.body}", review_path(review) %>
+				</li>
+				<% end %>
+		</ul>
+	</body>
+</html>
 
-<p>
-  <strong>Email:</strong>
-  <%= @user.email %>
-</p>
 
-<%= link_to 'Edit', edit_user_path(@user) %> |
-<%= link_to 'Back', users_path %>
