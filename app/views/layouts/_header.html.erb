@@ -11,16 +11,17 @@
         <li><%= link_to "Coffee Roasts", roasts_path %></li>
         <% if logged_in? %>
         <li class="active"><%= link_to "Post", new_review_path %></li>
-        <li class="dropdown">
-          <button href="#" data-dropdown="drop1" aria-controls="drop1" aria-expanded="false" class="button dropdown">Account</button><br>
-            <ul id="drop1" data-dropdown-content class="f-dropdown" aria-hidden="true">
+        <li class="has-dropdown">
+          <a href="#">Account</a>
+          <!-- <a href="#" data-dropdown="drop1" aria-controls="drop1" aria-expanded="false" class="button dropdown">Account</a><br> -->
+            <ul class="dropdown">
               <li><%= link_to "Profile", "users_path(current_user.id)" %></li>
               <li><%= link_to "Log Out", logout_path %></li>
             </ul>
         </li>
         <% else %>
         <li><%= link_to "Log In", login_path %></li>
-        <!-- <li><%= link_to "Signup", new_user_path %></li> -->
+        <li><%= link_to "Signup", new_user_path %></li>
         <% end %>
       </ul>
     </section>
