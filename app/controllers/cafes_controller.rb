@@ -5,6 +5,30 @@ class CafesController < ApplicationController
   # GET /cafes.json
   def index
     @cafes = Cafe.all
+    @cafejson = Array.new
+
+    @cafes.each do |cafe|
+      @cafejson << {
+        type: 'Feature',
+        geometry: {
+          type: 'Point',
+          coordinates: [cafe.longitude, cafe.latitude]
+        },
+        properties: {
+          name: cafe.name,
+          address: cafe.address,
+          :'marker-color' => '#000000',
+          :'marker-symbol' => 'circle',
+          :'marker-size' => 'medium'
+        }
+      }
+    end
+
+    respond_to do |format|
+      format.html
+      format.json { render json: @cafejson }
+    end
+    
   end
 
   # GET /cafes/1
