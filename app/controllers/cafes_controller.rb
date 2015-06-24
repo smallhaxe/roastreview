@@ -69,6 +69,6 @@ class CafesController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def cafe_params
-      params.require(:cafe).permit(:name, :address, :lat, :lng, :roaster)
+      params.require(:cafe).permit(:name, :address, :latitude, :longitude, :roaster)
     end
 end

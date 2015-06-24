@@ -38,7 +38,8 @@ gem 'bcrypt', '~> 3.1.7'
 # Use Zurb Foundation for front-end framework
 gem 'foundation-rails'
 
-# MapBox
+# Mapping and Geocoding
+gem 'geocoder'
 gem 'mapbox-rails'
 
 group :development, :test do
