@@ -1,0 +1,29 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Name:</strong>
+  <%= @cafe.name %>
+</p>
+
+<p>
+  <strong>Address:</strong>
+  <%= @cafe.address %>
+</p>
+
+<p>
+  <strong>Lat:</strong>
+  <%= @cafe.lat %>
+</p>
+
+<p>
+  <strong>Lng:</strong>
+  <%= @cafe.lng %>
+</p>
+
+<p>
+  <strong>Roaster:</strong>
+  <%= @cafe.roaster %>
+</p>
+
+<%= link_to 'Edit', edit_cafe_path(@cafe) %> |
+<%= link_to 'Back', cafes_path %>
