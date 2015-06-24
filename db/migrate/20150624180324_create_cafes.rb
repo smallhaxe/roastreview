@@ -3,8 +3,8 @@ class CreateCafes < ActiveRecord::Migration
     create_table :cafes do |t|
       t.string :name
       t.string :address
-      t.float :lat
-      t.float :lng
+      t.float :latitude
+      t.float :longitude
       t.string :roaster
 
       t.timestamps null: false
