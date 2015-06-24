@@ -3,6 +3,7 @@ class User < ActiveRecord::Base
   has_many :reviews
 
   def self.confirm(params)
+    binding.pry
     @user = User.find_by({email: params[:email]})
     @user.try(:authenticate, params[:password])
   end
