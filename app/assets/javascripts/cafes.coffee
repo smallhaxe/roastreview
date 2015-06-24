@@ -4,9 +4,16 @@
 
 $(document).ready ->
   L.mapbox.accessToken = 'pk.eyJ1IjoiY2xheW5lIiwiYSI6IldjZ2gyLW8ifQ.8AtgyePBb8CL3sh_LX2Awg'
-  map = L.mapbox.map('map-one', 'clayne.i6afai85').setView([
+  map = L.mapbox.map('cafe-map', 'clayne.i6afai85').setView([
     37.794
     -122.401
     14
   ])
   return
+
+$.ajax
+  dataType: 'text'
+  url: 'cafes/cafes.json'
+  success: (data) ->
+    cafejson = $.parseJSON(data)
+    map.featureLayer.setGeoJSON(cafejson)
