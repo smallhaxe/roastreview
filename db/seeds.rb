@@ -70,6 +70,16 @@ roasts_seeds.each do |roast_level, roast_type, name, roaster|
   Roast.create( roast_level: roast_level, roast_type: roast_type, coffee_name: name, roaster: roaster )
 end
 
+cafes_seeds = [
+                [ "Coffee Cultures",
+                  "225 Bush St, San Francisco, CA",
+                  "Counter Culture Coffee Roasters" ]
+              ]
+
+cafes_seeds.each do |name, address, roaster|
+  Cafe.create( name: name, address: address, roaster: roaster )
+end
+
 1000.times do ||
   Review.create( user_id: rand(1 .. 1000), roast_id: rand(1 .. 20), rating: rand(1 .. 5), body:FFaker::HipsterIpsum::paragraph )
 end
