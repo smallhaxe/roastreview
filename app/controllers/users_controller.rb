@@ -4,7 +4,9 @@ class UsersController < ApplicationController
   # GET /users
   # GET /users.json
   def index
-    @users = User.all
+    @user = current_user
+    redirect_to @user and return if @user
+    redirect_to login_path
   end
 
   # GET /users/1
@@ -19,6 +21,11 @@ class UsersController < ApplicationController
 
   # GET /users/1/edit
   def edit
+    if current_user == @user
+    else
+      flash[:warning] = "Sorry, you can only edit your own profile"
+      redirect_to @user
+    end
   end
 
   # POST /users
@@ -28,6 +35,7 @@ class UsersController < ApplicationController
 
     respond_to do |format|
       if @user.save
+        login(@user)
         format.html { redirect_to @user, notice: 'User was successfully created.' }
         format.json { render :show, status: :created, location: @user }
       else
