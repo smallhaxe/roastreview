@@ -38,6 +38,9 @@ gem 'bcrypt', '~> 3.1.7'
 # Use Zurb Foundation for front-end framework
 gem 'foundation-rails'
 
+# Mapping and Geocoding
+gem 'geocoder'
+
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
   gem 'pry-byebug'
@@ -47,10 +50,10 @@ group :development, :test do
 
   # Spring speeds up development by keeping your application running in the background. Read more: https://github.com/rails/spring
   gem 'spring'
-  
+
   # FFaker for seed data
   gem 'ffaker'
-  
+
   gem 'rspec-rails', '~> 2.0'
 
 end
@@ -58,4 +61,3 @@ end
 group :test do
   gem 'capybara', '~> 2.1.0'
 end
-
