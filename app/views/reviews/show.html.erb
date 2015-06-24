@@ -12,12 +12,12 @@
 
 <p>
   <strong>User:</strong>
-  <%= @review.user_id %>
+  <%= @review.user.first_name %> <%= link_to @review.user.last_name, @review.user %>
 </p>
 
 <p>
   <strong>Roast:</strong>
-  <%= @review.roast_id %>
+  <%= @review.roast.roaster %>  <%= link_to @review.roast.coffee_name, roast_path(@review.roast) %>
 </p>
 
 <%= link_to 'Edit', edit_review_path(@review) %> |

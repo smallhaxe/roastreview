@@ -13,11 +13,12 @@
 
   <div class="field">
     <%= f.label :roast_level %><br>
-    <%= f.text_field :roast_level %>
+    <%= f.select(:roast_level, options_for_select([['Light', 'light'], ['Medium', 'medium'], ['Dark', 'dark']])) %>
+
   </div>
   <div class="field">
     <%= f.label :roast_type %><br>
-    <%= f.text_field :roast_type %>
+    <%= f.select(:roast_type, options_for_select([['single origin', 'single origin'], ['blend', 'blend']])) %>
   </div>
   <div class="field">
     <%= f.label :coffee_name %><br>
