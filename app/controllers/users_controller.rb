@@ -1,5 +1,5 @@
 class UsersController < ApplicationController
-  before_action :set_user, except: [ :new ]
+  before_action :set_user, except: [ :new, :create ]
 
   # GET /users
   # GET /users.json
