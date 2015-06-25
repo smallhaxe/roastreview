@@ -33,7 +33,9 @@
             <h5>Reviewed <%= DateTime.parse(review.created_at.to_s).strftime(format='%A, %d %B') %></h5>
           </a>
           <p><%= review.body %></p>
+          <% if review.user_id == @current_user.id %>
             <a class="button tiny radius" href="<%= edit_review_path(review) %>">Edit</a>
+          <% end %>
         </div>
       <% end %>
       
