@@ -3,20 +3,20 @@
 require "ffaker"
 
 users_seeds = [
-                [ "Mike", "Tan",
+                [ 0, "Mike", "Tan",
                   "mike@ta.n", "password" ],
-                [ "Celeste", "Layne",
+                [ 0, "Celeste", "Layne",
                   "celeste@layn.e", "password" ],
-                [ "Wyatt", "Sweet",
+                [ 0, "Wyatt", "Sweet",
                   "wyatt@swee.t", "password" ],
-                [ "Francisco", "Echeverri",
+                [ 0, "Francisco", "Echeverri",
                   "francisco@echeverr.i", "password" ],
-                [ "Ugo", "Ani",
+                [ 0, "Ugo", "Ani",
                   "ugo@an.i", "password" ]
               ]
               
-users_seeds.each do |fname, lname, email, pass|
-  User.create( first_name: fname, last_name: lname, email: email, password: pass )
+users_seeds.each do |role, fname, lname, email, pass|
+  User.create( role: role, first_name: fname, last_name: lname, email: email, password: pass )
 end
 
 95.times do ||

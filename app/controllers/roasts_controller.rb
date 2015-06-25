@@ -1,5 +1,6 @@
 class RoastsController < ApplicationController
   before_action :set_roast, only: [:show, :edit, :update, :destroy]
+  before_action :current_admin?, except: [:index, :show]
 
   # GET /roasts
   # GET /roasts.json
@@ -65,6 +66,13 @@ class RoastsController < ApplicationController
     # Use callbacks to share common setup or constraints between actions.
     def set_roast
       @roast = Roast.find(params[:id])
+    end
+    
+    def current_admin?
+      unless current_user.is_admin?
+        flash[:error] = "That request is above your paygrade, user."
+        redirect_to roasts_path
+      end
     end
 
     # Never trust parameters from the scary internet, only allow the white list through.

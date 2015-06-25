@@ -10,6 +10,10 @@ class User < ActiveRecord::Base
     self.role ||= :consumer
   end
   
+  def is_admin?
+    self.role == "admin"
+  end
+
   def self.confirm(params)
     @user = User.find_by({email: params[:email]})
     @user.try(:authenticate, params[:password])

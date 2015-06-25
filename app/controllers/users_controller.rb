@@ -43,7 +43,7 @@ class UsersController < ApplicationController
   # PATCH/PUT /users/1.json
   def update
     respond_to do |format|
-      if @user.update(user_params)
+      if current_user.update(user_params)
         format.html { redirect_to @user, alert: 'User was successfully updated.' }
         format.json { render :show, status: :ok, location: @user }
       else
