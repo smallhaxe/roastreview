@@ -1,5 +1,5 @@
 class UsersController < ApplicationController
-  before_action :set_user, except: [ :new ]
+  before_action :set_user, except: [ :new, :create ]
 
   # GET /users
   # GET /users.json
@@ -10,7 +10,7 @@ class UsersController < ApplicationController
   # GET /users/1
   # GET /users/1.json
   def show    
-    @user = User.find(params[:id])      
+    @user = User.find_by(slug: params[:id])      
   end
 
   # GET /users/new
@@ -20,6 +20,7 @@ class UsersController < ApplicationController
 
   # GET /users/1/edit
   def edit
+    @user = User.find_by(slug: params[:id])
   end
 
   # POST /users
@@ -43,12 +44,12 @@ class UsersController < ApplicationController
   # PATCH/PUT /users/1.json
   def update
     respond_to do |format|
-      if @user.update(user_params)
-        format.html { redirect_to @user, alert: 'User was successfully updated.' }
-        format.json { render :show, status: :ok, location: @user }
+      if @current_user.update(user_params)
+        format.html { redirect_to @current_user, alert: 'User was successfully updated.' }
+        format.json { render :show, status: :ok, location: @current_user }
       else
         format.html { render :edit }
-        format.json { render json: @user.errors, status: :unprocessable_entity }
+        format.json { render json: @current_user.errors, status: :unprocessable_entity }
       end
     end
   end
