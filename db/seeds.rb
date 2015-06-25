@@ -2,8 +2,6 @@
 
 require "ffaker"
 
-User.destroy_all
-
 users_seeds = [
                 [ "Mike", "Tan",
                   "mike@ta.n", "password" ],
