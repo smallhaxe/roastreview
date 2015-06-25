@@ -40,6 +40,7 @@ gem 'foundation-rails'
 
 # Mapping and Geocoding
 gem 'geocoder'
+gem 'mapbox-rails'
 
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
