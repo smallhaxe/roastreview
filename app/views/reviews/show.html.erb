@@ -2,7 +2,9 @@
 
 <p>
   <strong>Rating:</strong>
-  <%= @review.rating %>
+  <div class="star">
+  <%= render_stars(@review.rating) %>
+  </div>
 </p>
 
 <p>
@@ -21,4 +23,5 @@
 </p>
 
 <%= link_to 'Edit', edit_review_path(@review) %> |
-<%= link_to 'Back', reviews_path %>
+<%= link_to 'Back', reviews_path %> 
+<%= link_to 'Delete', edit_review_path(@review)%>

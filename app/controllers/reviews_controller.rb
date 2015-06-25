@@ -14,6 +14,7 @@ class ReviewsController < ApplicationController
 
   # GET /reviews/new
   def new
+    current_user
     @review = Review.new
   end
 

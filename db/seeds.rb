@@ -1,6 +1,8 @@
 # db/seeds.rb
 
-require "ffaker"
+# require "ffaker"
+
+User.destroy_all
 
 users_seeds = [
                 [ "Mike", "Tan",
