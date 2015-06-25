@@ -1,6 +1,6 @@
 class ReviewsController < ApplicationController
   before_action :set_review, only: [:show, :edit, :update, :destroy]
-
+  before_action :current_user, only: [:index, :show, :new, :destroy]
   # GET /reviews
   # GET /reviews.json
   def index
@@ -14,7 +14,6 @@ class ReviewsController < ApplicationController
 
   # GET /reviews/new
   def new
-    current_user
     @review = Review.new
   end
 
