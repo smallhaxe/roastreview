@@ -13,7 +13,7 @@ class SessionsController < ApplicationController
     @user = User.confirm(params.require(:user).permit(:email, :password))
     if @user
       login(@user)
-      flash[:success] = "Successful login"
+      flash[:success] = "Successfully logged in."
       redirect_to @user
     else
       flash[:error] = "Invalid email address or password. Please try again."
@@ -23,7 +23,7 @@ class SessionsController < ApplicationController
 
   def destroy
     logout
-    flash[:success] = "successfully logged out"
+    flash[:success] = "Successfully logged out."
     redirect_to ("/")
   end
 

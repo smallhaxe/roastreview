@@ -6,12 +6,6 @@ module SessionsHelper
     @current_user = user
   end
 
-  def logged_in?
-  	unless current_user
-  		redirect_to login_path
-		end
-	end
-
   def current_user
     return false if session[:user_id] == nil
     @current_user ||= User.find_by({id: session[:user_id]})
@@ -19,6 +13,7 @@ module SessionsHelper
 
   def logout
   	@current_user = session[:user_id] = nil
-	end
+  end
+  
 end
 
