@@ -1,7 +1,7 @@
 class SessionsController < ApplicationController
 
   def index
-    
+    @user = User.new
   end
 
   def new
@@ -19,7 +19,12 @@ class SessionsController < ApplicationController
       flash[:error] = "Invalid email address or password. Please try again."
       redirect_to login_path
     end
+  end
 
+  def destroy
+    logout
+    flash[:success] = "successfully logged out"
+    redirect_to ("/")
   end
 
 end

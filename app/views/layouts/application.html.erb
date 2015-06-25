@@ -10,8 +10,11 @@
   <%= csrf_meta_tags %>
 </head>
 <body>
-
-  <%= render 'layouts/header' %>
+  <% if session[:user_id] %>
+    <%= render 'layouts/header_loggedin' %>
+  <% else %>
+    <%= render 'layouts/header_loggedout' %>
+  <% end %>
   <section class="main-section">
     <div id="mainContent" class="large-12 columns">
       <%= yield %>
