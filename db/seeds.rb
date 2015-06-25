@@ -1,6 +1,6 @@
 # db/seeds.rb
 
-# require "ffaker"
+require "ffaker"
 
 User.destroy_all
 
