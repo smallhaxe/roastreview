@@ -9,7 +9,7 @@
 		<div id="profileUserReviews"></div>
 		<p id="notice"><%= notice %></p>
 		<p><%=image_tag avatar_url(@user)%></p>
-		<p>Nice to see you again <%= session[:user_first_name] %></p>
+		<p>Nice to see you, <%= session[:user_first_name] %>.</p>
 		<p>
 		  <strong>First name:</strong>
 		  <%= @user.first_name %>

@@ -15,6 +15,9 @@
   <% else %>
     <%= render 'layouts/header_loggedout' %>
   <% end %>
+  <% if flash[:success] %>
+    <div class="notice"><%= flash[:success] %></div>
+  <% end %>
   <section class="main-section">
     <div id="mainContent" class="large-12 columns">
       <%= yield %>
