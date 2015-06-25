@@ -18,8 +18,21 @@
   <% else %>
     <%= render 'layouts/header_loggedout' %>
   <% end %>
-  <% if flash[:success] %>
-    <div class="notice"><%= flash[:success] %></div>
+  <% if flash[:alert] %>
+    <div data-alert class="alert-box">
+      <%= flash[:alert] %>
+      <a href="#" class="close">&times;</a>
+    </div>
+  <% elsif flash[:success] %>
+    <div data-alert class="alert-box success">
+      <%= flash[:success] %>
+      <a href="#" class="close">&times;</a>
+    </div>
+  <% elsif flash[:error] %>
+    <div data-alert class="alert-box alert">
+      <%= flash[:error] %>
+      <a href="#" class="close">&times;</a>
+    </div>
   <% end %>
   <section class="main-section">
     <div id="mainContent" class="large-12 columns">

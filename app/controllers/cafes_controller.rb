@@ -52,7 +52,7 @@ class CafesController < ApplicationController
 
     respond_to do |format|
       if @cafe.save
-        format.html { redirect_to @cafe, notice: 'Cafe was successfully created.' }
+        format.html { redirect_to @cafe, alert: 'Cafe was successfully created.' }
         format.json { render :show, status: :created, location: @cafe }
       else
         format.html { render :new }
@@ -66,7 +66,7 @@ class CafesController < ApplicationController
   def update
     respond_to do |format|
       if @cafe.update(cafe_params)
-        format.html { redirect_to @cafe, notice: 'Cafe was successfully updated.' }
+        format.html { redirect_to @cafe, alert: 'Cafe was successfully updated.' }
         format.json { render :show, status: :ok, location: @cafe }
       else
         format.html { render :edit }
@@ -80,7 +80,7 @@ class CafesController < ApplicationController
   def destroy
     @cafe.destroy
     respond_to do |format|
-      format.html { redirect_to cafes_url, notice: 'Cafe was successfully destroyed.' }
+      format.html { redirect_to cafes_url, alert: 'Cafe was successfully destroyed.' }
       format.json { head :no_content }
     end
   end
