@@ -21,7 +21,7 @@ users_seeds.each do |fname, lname, email, pass|
   User.create( first_name: fname, last_name: lname, email: email, password: pass )
 end
 
-995.times do ||
+95.times do ||
   User.create( first_name: FFaker::Name::first_name, last_name: FFaker::Name::last_name, email: FFaker::Internet::email, password: "password" )
 end
 
@@ -83,5 +83,5 @@ cafes_seeds.each do |name, address, roaster|
 end
 
 1000.times do ||
-  Review.create( user_id: rand(1 .. 1000), roast_id: rand(1 .. 20), rating: rand(1 .. 5), body:FFaker::HipsterIpsum::paragraph )
+  Review.create( user_id: rand(1 .. 100), roast_id: rand(1 .. 20), rating: rand(1 .. 5), body:FFaker::HipsterIpsum::paragraph )
 end

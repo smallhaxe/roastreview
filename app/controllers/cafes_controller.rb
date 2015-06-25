@@ -5,6 +5,30 @@ class CafesController < ApplicationController
   # GET /cafes.json
   def index
     @cafes = Cafe.all
+    @cafejson = Array.new
+
+    @cafes.each do |cafe|
+      @cafejson << {
+        type: 'Feature',
+        geometry: {
+          type: 'Point',
+          coordinates: [cafe.longitude, cafe.latitude]
+        },
+        properties: {
+          name: cafe.name,
+          address: cafe.address,
+          :'marker-color' => '#000000',
+          :'marker-symbol' => 'circle',
+          :'marker-size' => 'medium'
+        }
+      }
+    end
+
+    respond_to do |format|
+      format.html
+      format.json { render json: @cafejson }
+    end
+    
   end
 
   # GET /cafes/1
@@ -28,7 +52,7 @@ class CafesController < ApplicationController
 
     respond_to do |format|
       if @cafe.save
-        format.html { redirect_to @cafe, notice: 'Cafe was successfully created.' }
+        format.html { redirect_to @cafe, alert: 'Cafe was successfully created.' }
         format.json { render :show, status: :created, location: @cafe }
       else
         format.html { render :new }
@@ -42,7 +66,7 @@ class CafesController < ApplicationController
   def update
     respond_to do |format|
       if @cafe.update(cafe_params)
-        format.html { redirect_to @cafe, notice: 'Cafe was successfully updated.' }
+        format.html { redirect_to @cafe, alert: 'Cafe was successfully updated.' }
         format.json { render :show, status: :ok, location: @cafe }
       else
         format.html { render :edit }
@@ -56,7 +80,7 @@ class CafesController < ApplicationController
   def destroy
     @cafe.destroy
     respond_to do |format|
-      format.html { redirect_to cafes_url, notice: 'Cafe was successfully destroyed.' }
+      format.html { redirect_to cafes_url, alert: 'Cafe was successfully destroyed.' }
       format.json { head :no_content }
     end
   end
@@ -69,6 +93,6 @@ class CafesController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def cafe_params
-      params.require(:cafe).permit(:name, :address, :lat, :lng, :roaster)
+      params.require(:cafe).permit(:name, :address, :latitude, :longitude, :roaster)
     end
 end

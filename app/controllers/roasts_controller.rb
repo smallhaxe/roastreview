@@ -28,7 +28,7 @@ class RoastsController < ApplicationController
 
     respond_to do |format|
       if @roast.save
-        format.html { redirect_to @roast, notice: 'Roast was successfully created.' }
+        format.html { redirect_to @roast, alert: 'Roast was successfully created.' }
         format.json { render :show, status: :created, location: @roast }
       else
         format.html { render :new }
@@ -42,7 +42,7 @@ class RoastsController < ApplicationController
   def update
     respond_to do |format|
       if @roast.update(roast_params)
-        format.html { redirect_to @roast, notice: 'Roast was successfully updated.' }
+        format.html { redirect_to @roast, alert: 'Roast was successfully updated.' }
         format.json { render :show, status: :ok, location: @roast }
       else
         format.html { render :edit }
@@ -56,7 +56,7 @@ class RoastsController < ApplicationController
   def destroy
     @roast.destroy
     respond_to do |format|
-      format.html { redirect_to roasts_url, notice: 'Roast was successfully destroyed.' }
+      format.html { redirect_to roasts_url, alert: 'Roast was successfully destroyed.' }
       format.json { head :no_content }
     end
   end

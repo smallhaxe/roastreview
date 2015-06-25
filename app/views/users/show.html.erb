@@ -1,37 +1,44 @@
 <!DOCTYPE html>
 <html>
+  
 	<head>
-		<title></title>
+    <title><%= @user.first_name %></title>
 	</head>
+  
 	<body id="profilePage">
 
-		<div id="profileUserInfo"></div>
-		<div id="profileUserReviews"></div>
-
-		<p id="notice"><%= notice %></p>
-		<p><%=image_tag avatar_url(@user)%></p>
-		<p>
-		  <strong>First name:</strong>
-		  <%= @user.first_name %>
-		</p>
-		<p>
-		  <strong>Last name:</strong>
-		  <%= @user.last_name %>
-		</p>
-		<p>
-		  <strong>Email:</strong>
-		  <%= @user.email %>
-		</p>
-		<%= link_to 'Edit', edit_user_path(@user) %> |
-		<%= link_to 'Back', users_path %>
-			<ul>
-				<% @user.reviews.each do |review| %>
-				<li>
-					<%= link_to "#{review.body}", review_path(review) %>
-				</li>
-				<% end %>
-		</ul>
+		<div id="profileUserInfo">
+      <p><%=image_tag avatar_url(@user)%></p>
+      <!-- <p>Nice to see you, <%= session[:user_first_name] %>.</p> -->
+      <p>
+      <%="#{ @user.first_name } #{ @user.last_name }"%>
+      </p>
+      <p>
+        <strong>Email:</strong>
+        <%= @user.email %>
+      </p>
+      <% if @user == @current_user %>
+        <a class="button small radius" href="<%= edit_user_path(@current_user) %>">Edit My Account</a>
+      <% end %>
+    </div>
+    
+		<div id="profileUserReviews">
+      
+      <% @user.reviews.each do |review| %>
+        <div class="panel">
+          <a href="<%= roast_path(review.roast) %>">
+            <h4><%= review.roast.coffee_name %></h4>
+          </a>
+          <a href="<%= review_path(review) %>">
+            <h5>Reviewed <%= DateTime.parse(review.created_at.to_s).strftime(format='%A, %d %B') %></h5>
+          </a>
+          <p><%= review.body %></p>
+          <% if review.user_id == @current_user.id %>
+            <a class="button tiny radius" href="<%= edit_review_path(review) %>">Edit</a>
+          <% end %>
+        </div>
+      <% end %>
+      
+    </div>
 	</body>
 </html>
-
-
