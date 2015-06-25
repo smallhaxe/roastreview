@@ -10,7 +10,7 @@
   <%= csrf_meta_tags %>
 </head>
 <body>
-  <% if session[:user_id] %>
+  <% if @current_user %>
     <%= render 'layouts/header_loggedin' %>
   <% else %>
     <%= render 'layouts/header_loggedout' %>

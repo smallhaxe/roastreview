@@ -20,9 +20,10 @@
         <td><%= roast.roast_type %></td>
         <td><%= roast.coffee_name %></td>
         <td><%= roast.roaster %></td>
-        <td><%= link_to 'Show', roast %></td>
-        <td><%= link_to 'Edit', edit_roast_path(roast) %></td>
-        <td><%= link_to 'Destroy', roast, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+        <% if @user.role == admin %>
+          <td><%= link_to 'Edit', edit_roast_path(roast) %></td>
+          <td><%= link_to 'Destroy', roast, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+        <% end %>
       </tr>
     <% end %>
   </tbody>
