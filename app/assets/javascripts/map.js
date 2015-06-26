@@ -37,7 +37,7 @@ $(document).on("ready", function(){
           });
           marker.openPopup();
         });
-
+        myMap.map.fitBounds(myMap.cafeLayer.getBounds());
         myMap.cafeLayer.on('mouseout', function(e) {
             marker.closePopup();
         });
@@ -51,7 +51,11 @@ $(document).on("ready", function(){
   myMap.map.addLayer(myMap.cafeLayer);
   myMap.map.featureLayer.on("ready", function(e) {
     myMap.getCafes(myMap.map);
+    // myMap.map.fitBounds(myMap.cafeLayer.getBounds());
   });
 
+  // myMap.cafeLayer.on('ready', function(){
+  //   myMap.map.fitBounds(myMap.cafeLayer.getBounds());
+  // });
 
 });
