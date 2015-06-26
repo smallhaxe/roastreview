@@ -29,6 +29,8 @@ ActiveRecord::Schema.define(version: 20150625211115) do
   create_table "reviews", force: :cascade do |t|
     t.integer  "rating"
     t.string   "body"
+    t.string   "brew"
+    t.string   "cafe_id"
     t.integer  "user_id"
     t.integer  "roast_id"
     t.datetime "created_at", null: false
