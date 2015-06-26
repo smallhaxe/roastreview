@@ -11,7 +11,6 @@ $(document).on("ready", function(){
 
   myMap.getCafes = function(map) {
 
-    console.log('in get cafes');
     $.ajax({
       dataType: 'text',
       url: '/cafes.json',
