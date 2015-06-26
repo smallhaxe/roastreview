@@ -1,13 +1,14 @@
 
 <div id="headerwrap">
 
-  <%= image_tag "splash-image.jpg", class: "splashPageBgImg" %>
+  <%= image_tag "splashcoffee.jpg", class: "splashPageBgImg" %>
 
-  <div id="header-banner" class="large-6 columns large-offset-3 green">
+  <div id="header-banner" class="small-8 large-centered columns">
     <h1>Roast Review</h1>
     <p class="header-tagline"><em>Share and discover great coffee.</em></p>
     <div class="header-buttons">
-      <a href="/cafes" class="button">Discover</a>
+      <p class="button large signup-btn"><%= link_to "Sign Up", new_user_path %></p>
+      <p class="button large login-btn"><%= link_to "Log In", login_path %></p>
     </div>
   </div>
 

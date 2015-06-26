@@ -1,3 +1,5 @@
+@import url(http://fonts.googleapis.com/css?family=Oswald:400,300,700);
+
 // Place all the styles related to the sessions controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
@@ -14,24 +16,38 @@
 
 #header-banner{
   position: absolute;
-  height: 30%;
-  top: 40%;
+  height: 400px;
+  top: 20%;
   background-color: rgba(255, 255, 255, 0.5);
 }
 
-// .red {
-//   background-color: red;
-//   position: absolute;
-//   top: 40%;
-//   height: 50px;
-// }
-
-.green {
-  text-align: center;
+#header-banner h1 {
+  font-family: Oswald, sans-serif;
+  font-size: 100px;
+  font-weight: bold;
+  letter-spacing: 1.5;
+  text-transform: uppercase;
 }
 
-// .blue {
-//   background-color: blue;
-//   position: absolute;
-//   height: 50px;
-// }
+.header-tagline {
+  font-style: italic;
+  font-size: 28px;
+}
+
+.signup-btn, .login-btn {
+
+  width: 200px;
+  // height: 50px;
+  border: 1px solid transparent;
+  border-radius: 0;
+  margin: 0 10px;
+}
+
+.login-btn a, .signup-btn a {
+  color: #F2F2F2;
+  font-family: Lato, sans-serif;
+  font-weight: 700;
+  font-size: 24px;
+  letter-spacing: 1.1;
+  text-transform: uppercase;
+}
