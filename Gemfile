@@ -42,6 +42,9 @@ gem 'foundation-rails'
 gem 'geocoder'
 gem 'mapbox-rails'
 
+# FFaker for seed data
+gem 'ffaker'
+
 group :production do
 
   gem 'rails_12factor'
@@ -57,9 +60,6 @@ group :development, :test do
 
   # Spring speeds up development by keeping your application running in the background. Read more: https://github.com/rails/spring
   gem 'spring'
-
-  # FFaker for seed data
-  gem 'ffaker'
 
   gem 'rspec-rails', '~> 2.0'
 
