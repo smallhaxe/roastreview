@@ -33,7 +33,6 @@ class User < ActiveRecord::Base
       self.slug = first_name.parameterize
     end
 end
-<<<<<<< HEAD
-=======
 
->>>>>>> 12e156c14d66452c579c1250225e4da7668accd6
+
+
