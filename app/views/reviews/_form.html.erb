@@ -13,21 +13,40 @@
 
   <div class="field">
     <%= f.label :rating %><br>
-    <%= f.select(:rating, options_for_select([['\2605', '1'], ['2', '2'], ['3', '3'], ['4', '4'], ['5 - Best', '5']])) %>
+
+  
+  <fieldset class="rating">
+    
+    <input type="radio" id="star5" name="review[rating]" value=5 /><label class = "full" for="star5" title="- 5 stars"></label>
+   
+    <input type="radio" id="star4" name="review[rating]" value=4 /><label class = "full" for="star4" title="- 4 stars"></label>
+ 
+    <input type="radio" id="star3" name="review[rating]" value=3 /><label class = "full" for="star3" title="- 3 stars"></label>
+   
+    <input type="radio" id="star2" name="review[rating]" value=2 /><label class = "full" for="star2" title="- 2 stars"></label>
+ 
+    <input type="radio" id="star1" name="review[rating]" value=1 /><label class = "full" for="star1" title="- 1 star"></label>
+    
+  </fieldset>
   </div>
+
+  <br>
+  <br>
   <div class="field">
     <%= f.label :body %><br>
     <%= f.text_area :body, rows: 20 %>
   </div>
   <div class="field">
+    <!-- @current_user -->
     <%= f.label :user_id %><br>
-    <%= f.text_field :user_id %>
+    <%= f.select(:user_id, options_for_select([[current_user.first_name+" "+ current_user.last_name, current_user.id]])) %>
   </div>
   <div class="field">
     <%= f.label :roast_id %><br>
-    <%= f.select(:rating, options_for_select([['Blue Bottle Coffee, Burundi Kayanza Ninga', '2'], ['Blue Bottle Coffee, Colombia Granja Esperanza Gesha AAA', '7'], ['Blue Bottle Coffee, Ethiopia Homacho Waeno', '6'], ['Blue Bottle Coffee, Honduras Cerro Gacho', '18'], ['Blue Bottle Coffee, Rwanda  Kirezi', '8'], ['Blue Bottle Coffee, Rwanda Nyanza Kirezi', '1'], ['Equator Coffees & Teas, Brazil Bela Vista Micro-Lot', '14'],  ['Equator Coffees & Teas, Ecuador El Batan Fiar Trade Organic', '20'],  ['Equator Coffees & Teas, Panama Finca La Mula Geisha Natural', '16'],  ['Four Barrel Coffee, Rwanda Cotecaga Bourbon', '9'],  ['Linea Caffe S.F., Brazil Fazenda Sertaozinho', '13'], ['Mr. Espresso, Colombia El Bado', '11'], ['Mr. Espresso, Ethiopia Yirgacheffe Kochere Aricha', '17'], ["Peet's Coffee & Tea, Colombia Luminosa", '5'], ['Ritual Coffee Roasters, Brazil Yellow Catuai Esperança Joao', '12'], ['Ritual Coffee Roasters, Wolf Moon Seasonal Espresso', '3'], ['San Francisco Bay Coffee, Reserve 100% Panama Geisha', '4'], ['Sightglass Coffee, Colombia Finca Monte Verde, Gildardo', '10']])) %>
+    <%= f.collection_select(:roast_id, Roast.all, :id, :coffee_name) %>
   </div>
   <div class="actions">
     <%= f.submit "Submit Review", class: "button" %>
   </div>
 <% end %>
+
