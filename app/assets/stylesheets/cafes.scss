@@ -4,7 +4,7 @@
 
 #map {
   position:relative;
-
+  margin
   width:600px;
   height:300px;
 }
@@ -15,5 +15,7 @@
 }
 
 .cafe-card {
-  
+  width: 33.33%;
+  // height: 300px;
+  display: inline-block;
 }

@@ -2,17 +2,21 @@
 
 <div id="map" class="small-10 large-centered columns" style="width: 80%"></div>
 
-<div class="small-10 large-centered columns">
+<div class="small-10 large-centered columns" data-equalizer>
 
 <h1>List of Cafes</h1>
 
   <% @cafes.each do |cafe| %>
-  <div class="cafe-card panel">
+
+  <div class="cafe-card panel" data-equalizer-watch>
+      <%= link_to cafe_path(cafe) do %>
       <h3><%= cafe.name %></h3>
-      <h3><%= cafe.address %></h3>
-      <h4><%= cafe.roaster %></h4>
+      <h3 class="subheader"><small><%= cafe.address %></small></h3>
+      <h4 class="subheader"><small><%= cafe.roaster %></small></h4>
+      <% end %>
   </div>
   <% end %>
+
 
   <!-- <table>
     <thead>
