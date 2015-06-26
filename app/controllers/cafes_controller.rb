@@ -6,8 +6,8 @@ class CafesController < ApplicationController
   # GET /cafes.json
   def index
     @cafes = Cafe.all
-    @cafe = current_cafe
-    
+    # @cafe = current_cafe
+
     @cafejson = Array.new
 
     @cafes.each do |cafe|
@@ -37,7 +37,7 @@ class CafesController < ApplicationController
   # GET /cafes/1
   # GET /cafes/1.json
   def show
-    @reviews = Review.where({roast_id: = current_cafe.id})
+    # @reviews = Review.where({roast_id: = current_cafe.id})
   end
 
   # GET /cafes/new
