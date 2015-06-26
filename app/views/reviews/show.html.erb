@@ -2,7 +2,9 @@
 
 <p>
   <strong>Rating:</strong>
-  <%= @review.rating %>
+  <div class="star">
+  <%= render_stars(@review.rating) %>
+  </div>
 </p>
 
 <p>
@@ -20,5 +22,13 @@
   <%= @review.roast.roaster %>  <%= link_to @review.roast.coffee_name, roast_path(@review.roast) %>
 </p>
 
-<%= link_to 'Edit', edit_review_path(@review) %> |
-<%= link_to 'Back', reviews_path %>
+<% if current_user == @review.user %>
+<%= link_to 'Edit', edit_review_path(@review) %>
+      <% end %> |
+<%= link_to 'Back', reviews_path %> |
+<% if current_user == @review.user %>
+<%= link_to 'Destroy', @review, method: :delete, data: {confirm: 'Are you sure?'} %>
+      <% end %>
+
+
+  <!-- %= link_to 'Destroy', user, method: :delete, data: { confirm: 'Are you sure?' } %></td> -->

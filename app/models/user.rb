@@ -1,14 +1,21 @@
 class User < ActiveRecord::Base
 
+  validates :slug, presence: true, uniqueness: { case_sensitive: false }
+  before_validation :create_slug
+  
   has_secure_password
   has_many :reviews
   
-  enum role: { admin: 0, consumer: 1 }
-  after_initialize :set_default_role, :if => :new_record?
+  # enum role: { admin: 0, consumer: 1 }
+  # after_initialize :set_default_role, :if => :new_record?
 
-  def set_default_role
-    self.role ||= :consumer
+  def to_param
+    slug
   end
+
+  # def set_default_role
+  #   self.role ||= :consumer
+  # end
   
   def self.confirm(params)
     @user = User.find_by({email: params[:email]})
@@ -21,4 +28,9 @@ class User < ActiveRecord::Base
 
   validates :password, length: 8..30
 
+  private
+    def create_slug
+      self.slug = first_name.parameterize
+    end
 end
+

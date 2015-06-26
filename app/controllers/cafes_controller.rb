@@ -1,5 +1,6 @@
 class CafesController < ApplicationController
   before_action :set_cafe, only: [:show, :edit, :update, :destroy]
+  before_action :current_user
 
   # GET /cafes
   # GET /cafes.json
