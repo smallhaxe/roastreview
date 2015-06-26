@@ -1,5 +1,6 @@
 class RoastsController < ApplicationController
   before_action :set_roast, only: [:show, :edit, :update, :destroy]
+  before_action :current_user
 
   # GET /roasts
   # GET /roasts.json
