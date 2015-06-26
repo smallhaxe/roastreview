@@ -1,0 +1,34 @@
+<p id="notice"><%= notice %></p>
+
+<h1>Listing Roasts</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>Roast Level</th>
+      <th>Roast Type</th>
+      <th>Coffee name</th>
+      <th>Roaster</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @roasts.each do |roast| %>
+      <tr>
+        <td><%= roast.roast_level %></td>
+        <td><%= roast.roast_type %></td>
+        <td><%= roast.coffee_name %></td>
+        <td><%= roast.roaster %></td>
+        <% if @user.role == admin %>
+          <td><%= link_to 'Edit', edit_roast_path(roast) %></td>
+          <td><%= link_to 'Destroy', roast, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+        <% end %>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Roast', new_roast_path %>
