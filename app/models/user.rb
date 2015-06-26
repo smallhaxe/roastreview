@@ -13,10 +13,6 @@ class User < ActiveRecord::Base
     slug
   end
 
-  def set_default_role
-    self.role ||= :consumer
-  end
-
   # def set_default_role
   #   self.role ||= :consumer
   # end
@@ -37,3 +33,7 @@ class User < ActiveRecord::Base
       self.slug = first_name.parameterize
     end
 end
+<<<<<<< HEAD
+=======
+
+>>>>>>> 12e156c14d66452c579c1250225e4da7668accd6
