@@ -2,14 +2,16 @@
 <div id="headerwrap">
 
   <%= image_tag "splashcoffee.jpg", class: "splashPageBgImg" %>
-
-  <div id="header-banner" class="small-8 large-centered columns">
-    <h1>Roast Review</h1>
-    <p class="header-tagline"><em>Share and discover great coffee.</em></p>
-    <div class="header-buttons">
-      <p class="button large signup-btn"><%= link_to "Sign Up", new_user_path %></p>
-      <p class="button large login-btn"><%= link_to "Log In", login_path %></p>
+  <div class="row">
+    <div id="header-banner" class="small-8 large-centered columns">
+      <h1>Roast Review</h1>
+      <p class="header-tagline"><em>Share and discover great coffee.</em></p>
+      <div class="header-buttons">
+        <p class="button large signup-btn"><%= link_to "Sign Up", new_user_path %></p>
+        <p class="button large login-btn"><%= link_to "Log In", login_path %></p>
+      </div>
     </div>
   </div>
+
 
 </div>
