@@ -1,5 +1,6 @@
 module SessionsHelper
 
+
   def login(user)
     session[:user_id] = user.id
     session[:user_first_name] = user.first_name
