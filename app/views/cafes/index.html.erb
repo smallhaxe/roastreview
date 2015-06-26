@@ -6,6 +6,16 @@
 
 <h1>List of Cafes</h1>
 
+<div class="small-2 columns">
+  <% @cafes.each do |cafe| %>
+    <tr>
+      <td><%= cafe.name %></td>
+      <td><%= cafe.address %></td>
+      <td><%= cafe.roaster %></td>
+    </tr>
+  <% end %>
+</div>
+
   <table>
     <thead>
       <tr>
