@@ -1,0 +1,35 @@
+<p id="notice"><%= notice %></p>
+
+<div id="map" class="small-6 large-centered columns" style="width: 50%"></div>
+
+<div class="small-6 large-centered columns">
+  <p>
+    <strong>Name:</strong>
+    <%= @cafe.name %>
+  </p>
+
+  <p>
+    <strong>Address:</strong>
+    <%= @cafe.address %>
+  </p>
+
+  <p style="display: none">
+    <strong>Lat:</strong>
+    <%= @cafe.latitude %>
+  </p>
+
+  <p style="display: none">
+    <strong>Lng:</strong>
+    <%= @cafe.longitude %>
+  </p>
+
+  <p>
+    <strong>Roaster:</strong>
+    <%= @cafe.roaster %>
+  </p>
+</div>
+
+<div class="small-6 large-centered columns">
+  <%= link_to 'Edit', edit_cafe_path(@cafe) %> |
+  <%= link_to 'Back', cafes_path %>
+</div>

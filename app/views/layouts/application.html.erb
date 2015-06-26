@@ -1,14 +1,47 @@
 <!DOCTYPE html>
-<html>
+<html class="no-js" lang="en">
 <head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Roastreview</title>
+  <script src='https://api.tiles.mapbox.com/mapbox.js/v2.2.1/mapbox.js'></script>
+  <link href='https://api.tiles.mapbox.com/mapbox.js/v2.2.1/mapbox.css' rel='stylesheet' />
   <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
+  <%= javascript_include_tag "vendor/modernizr" %>
   <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
   <%= csrf_meta_tags %>
+
 </head>
 <body>
-
-<%= yield %>
-
+  <% if @current_user %>
+    <%= render 'layouts/header_loggedin' %>
+  <% else %>
+    <%= render 'layouts/header_loggedout' %>
+  <% end %>
+  <% if flash[:alert] %>
+    <div data-alert class="alert-box">
+      <%= flash[:alert] %>
+      <a href="#" class="close">&times;</a>
+    </div>
+  <% elsif flash[:success] %>
+    <div data-alert class="alert-box success">
+      <%= flash[:success] %>
+      <a href="#" class="close">&times;</a>
+    </div>
+  <% elsif flash[:error] %>
+    <div data-alert class="alert-box alert">
+      <%= flash[:error] %>
+      <a href="#" class="close">&times;</a>
+    </div>
+  <% end %>
+  <section class="main-section">
+    <div id="mainContent" class="large-12 columns">
+      <%= yield %>
+    </div>
+<footer>
+</footer>
+  </section>
+<a class="exit-off-canvas"></a>   
+</div>
 </body>
 </html>
